@@ -1,0 +1,279 @@
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import render, redirect
+from .forms import ConsumerForm
+from .models import Consumer
+import csv 
+from django.core import serializers
+import os 
+import json
+from django.contrib import messages
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+
+
+def index(request):
+    return render(request,"index.html")
+
+def consumer(request):  
+    return render(request,"consumer.html")  
+
+
+def show_NewAccountNumber(request):
+    # print(request.POST)
+    NewAccountNumber = request.POST['NewAccountNumber']
+    consumer = Consumer.objects.filter(NewAccountNumber=NewAccountNumber)
+    return render(request, 'consumer.html',{'Consumers' : consumer})
+
+
+def show_Username(request):
+    
+    Username=request.GET.get('Username','')
+    
+    # consumer  = Consumer.objects.filter(Date_Time__icontains=Date_Time)
+    consumer  = Consumer.objects.filter(Username=Username).order_by('Username','Id')
+    
+    paginator = Paginator(consumer,10)
+
+    page = request.GET.get('page')
+    try:
+        consumer = paginator.page(page)
+    except PageNotAnInteger:
+        consumer = paginator.page(1)
+    except EmptyPage:
+        consumer = paginator.page(paginator.num_pages)
+
+    return render(request, 'consumer.html', {'Consumers': consumer,'Username':Username})
+
+
+    # Username = request.POST['Username']
+    # consumer = Consumer.objects.filter(Username=Username)
+    # return render(request, 'consumer.html',{'Consumers' : consumer})
+    
+    #     consumer = Consumer.objects.filter(Username=Username).order_by('Username')
+    #     paginator = Paginator(consumer, 10) 
+    #     page = request.GET.get('page')
+        
+    #     try:
+    #         consumer = paginator.page(page)
+    #     except PageNotAnInteger:
+            
+    #         consumer = paginator.page(1)
+    #     except EmptyPage:
+            
+    #         consumer = paginator.page(paginator.num_pages)    
+    #     return render(request, 'consumer.html',{'Consumers' : consumer,'page': page})
+
+    # else:
+    #     return render(request, 'consumer.html')
+
+
+def show_FeederName(request):
+    
+    
+    # FeederName = request.POST.get('FeederName','')
+    # consumer = Consumer.objects.filter(FeederName=FeederName).order_by('FeederName')
+    #     # consumer = Consumer.objects.filter(Date_Time__icontains=Date_Time).order_by('Id')
+    # querysets = Paginator(consumer, 10).get_page(request.GET.get('page'))
+    # return render(request, 'consumer.html', {'Consumers': querysets})
+    
+    FeederName=request.GET.get('FeederName','')
+    
+    # consumer  = Consumer.objects.filter(Date_Time__icontains=Date_Time)
+    consumer  = Consumer.objects.filter(FeederName=FeederName).order_by('FeederName','Id')
+    
+    paginator = Paginator(consumer,10)
+
+    page = request.GET.get('page')
+    try:
+        consumer = paginator.page(page)
+    except PageNotAnInteger:
+        consumer = paginator.page(1)
+    except EmptyPage:
+        consumer = paginator.page(paginator.num_pages)
+
+    return render(request, 'consumer.html', {'Consumers': consumer,'FeederName':FeederName})
+    
+    
+    
+    #  consumer = Consumer.objects.get_queryset().order_by('FeederName')
+    #     paginator = Paginator(consumer, 10) 
+    #     page = request.GET.get('page')
+        
+    #     try:
+    #         consumer = paginator.page(page)
+    #     except PageNotAnInteger:
+            
+    #         consumer = paginator.page(1)
+    #     except EmptyPage:
+            
+    #         consumer = paginator.page(paginator.num_pages)    
+    #     return render(request, 'consumer.html',{'Consumers' : consumer,'page': page})
+
+
+def show_Date_Time(request): 
+    # if request.method == 'POST':
+        # Date_Time=request.GET.get('Date_Time','')
+        
+        # # consumer  = Consumer.objects.filter(Date_Time__icontains=Date_Time)
+        # consumer  = Consumer.objects.filter(Date_Time__icontains=Date_Time).order_by('Date_Time','Id')
+        
+        # paginator = Paginator(consumer,10)
+
+        # page = request.GET.get('page')
+        # try:
+        #     consumer = paginator.page(page)
+        # except PageNotAnInteger:
+        #     consumer = paginator.page(1)
+        # except EmptyPage:
+        #     consumer = paginator.page(paginator.num_pages)
+
+        # return render(request, 'consumer.html', {'Consumers': consumer,'Date_time_val':Date_Time})
+    
+    Date_Time=request.GET.get('Date_Time','')
+    
+    # consumer  = Consumer.objects.filter(Date_Time__icontains=Date_Time)
+    consumer  = Consumer.objects.filter(Date_Time__icontains=Date_Time).order_by('Date_Time','Id')
+    
+    paginator = Paginator(consumer,10)
+
+    page = request.GET.get('page')
+    try:
+        consumer = paginator.page(page)
+    except PageNotAnInteger:
+        consumer = paginator.page(1)
+    except EmptyPage:
+        consumer = paginator.page(paginator.num_pages)
+
+    return render(request, 'consumer.html', {'Consumers': consumer,'Date_Time':Date_Time})
+    
+        
+    
+def consumer_excel(request):
+    if request.method == 'POST':
+            form = ConsumerForm(request.POST) 
+
+            Username = request.POST.get['Username']
+            Date_Time = request.POST.get['Date_Time']
+
+            try:
+                consumer = Consumer.objects.get(Username_Consumer=Username,Date_Time_Consumer=Date_Time)   
+            except Consumer.DoesNotExist:
+                consumer = None
+                         
+            if consumer is not None:
+                return redirect('/excel_download')                                           
+            else:
+                return render(request, 'consumer_excel.html')
+
+    return render(request,"consumer_excel.html")     
+
+def excel_download(request):
+    response = HttpResponse(
+        content_type='text/csv',
+        headers={'Content-Disposition': 'attachment; filename="consumer.csv"'},
+    )
+
+    writer = csv.writer(response)
+    writer.writerow(['Id','SurveyId','Latitude','Longitude','Username','Date_Time','SubDivision','Section','BuildingReferenceNumber','ConnectedPoleNo','PaintedPoleNo',
+            'FeederName','DTCode','ConsumerName','NewAccountNumber','OldAccountNumber','SCNumber','CustomerMobileNumber','FlatNo','Address1','Address2','Address3',
+            'ConsumerDoorLock','AMRInstalled','CommunicationType','CTRatio','DisplayCondition','MaximumDemand','MeterAvailability','MeterBox','MeterLocation',
+            'HeightGT5ft','MeterStatus','NominalVoltage','PhaseConnection','SealCondition','SealType','TotalMF','kWh','Bypass','Category','Type','SubType',
+            'MeterSerialNumber','MeterMake','Theft','BillDelivered','BillShown','MeterPhoto','BillPhoto','OtherPhoto','NeighbouringMeterNo','NeighbouringConsumerNo',
+            'NoofDigits','SurveyorRemark'])
+
+    Username=request.POST.get('Username_Consumer')
+    Date_Time=request.POST.get('Date_Time_Consumer')
+
+    if Username == 'all':
+
+        for consumer in Consumer.objects.all().filter(Date_Time__contains=Date_Time).values_list('Id','SurveyId','Latitude','Longitude','Username','Date_Time','SubDivision','Section','BuildingReferenceNumber','ConnectedPoleNo','PaintedPoleNo',
+            'FeederName','DTCode','ConsumerName','NewAccountNumber','OldAccountNumber','SCNumber','CustomerMobileNumber','FlatNo','Address1','Address2','Address3',
+            'ConsumerDoorLock','AMRInstalled','CommunicationType','CTRatio','DisplayCondition','MaximumDemand','MeterAvailability','MeterBox','MeterLocation',
+            'HeightGT5ft','MeterStatus','NominalVoltage','PhaseConnection','SealCondition','SealType','TotalMF','kWh','Bypass','Category','Type','SubType',
+            'MeterSerialNumber','MeterMake','Theft','BillDelivered','BillShown','MeterPhoto','BillPhoto','OtherPhoto','NeighbouringMeterNo','NeighbouringConsumerNo',
+            'NoofDigits','SurveyorRemark'):
+            writer.writerow(consumer)
+ 
+    else:
+
+        for consumer in Consumer.objects.all().filter(Username=Username,Date_Time__contains=Date_Time).values_list('Id','SurveyId','Latitude','Longitude','Username','Date_Time','SubDivision','Section','BuildingReferenceNumber','ConnectedPoleNo','PaintedPoleNo',
+            'FeederName','DTCode','ConsumerName','NewAccountNumber','OldAccountNumber','SCNumber','CustomerMobileNumber','FlatNo','Address1','Address2','Address3',
+            'ConsumerDoorLock','AMRInstalled','CommunicationType','CTRatio','DisplayCondition','MaximumDemand','MeterAvailability','MeterBox','MeterLocation',
+            'HeightGT5ft','MeterStatus','NominalVoltage','PhaseConnection','SealCondition','SealType','TotalMF','kWh','Bypass','Category','Type','SubType',
+            'MeterSerialNumber','MeterMake','Theft','BillDelivered','BillShown','MeterPhoto','BillPhoto','OtherPhoto','NeighbouringMeterNo','NeighbouringConsumerNo',
+            'NoofDigits','SurveyorRemark'):
+            writer.writerow(consumer)
+
+    return response
+
+def consumer_edit(request, Id):  
+    employee = Consumer.objects.get(Id=Id)  
+    return render(request,'consumer_edit.html', {'Consumer':employee})  
+
+
+def update(request, Id):  
+    
+    employee = Consumer.objects.get(Id=Id)  
+    form = ConsumerForm(request.POST, instance = employee)
+    
+    if form.is_valid():  
+        # print(form.cleaned_data['NewAccountNumber'])
+        form.save()
+        messages.success(request, 'Data Updated successfully')  
+        return redirect("/consumer")
+    else:
+        messages.warning(request, "Data was not inserted")
+    # print(form.errors)  
+    return render(request, 'consumer_edit.html', {'Consumer': employee})  
+
+
+def consumer_delete(request, Id):  
+    consumer = Consumer.objects.get(Id=Id)   
+    consumer.delete()  
+    messages.success(request, 'Data Deleted successfully')
+    return redirect("/consumer")  
+
+
+def consumer_view(request, Id):
+    if request.method == "GET": 
+            consumer = Consumer.objects.get(Id=Id)   
+              
+            return render(request, 'consumer_view.html',{'Consumer' : consumer})            
+    else:
+        return render(request, 'consumer.html')
+
+
+def consumer_map(request, Id):
+    if request.method == "GET": 
+        consumer = Consumer.objects.get(Id=Id)   
+              
+        return render(request, 'consumer_map.html',{'Consumer' : consumer})            
+    else:
+        return render(request, 'consumer.html')
+
+
+def logout(request):
+    return render(request,"login.html")
+
+
+def autocompleteModel(request):
+    if request.is_ajax():
+        q = request.GET.get('term')
+
+        my_dict = {
+            'NewAccountNumber':"%"+q+"%",         
+        } 
+        consumer = Consumer.objects.raw('Select * from \"Consumer\" ', my_dict)
+        print(consumer)
+
+        results = []
+        for pl in consumer:
+            NewAccountNumber1 = {}
+            NewAccountNumber1 = pl.NewAccountNumber 
+            results.append(NewAccountNumber1)
+        data = json.dumps(results)
+    
+    else:
+        data = 'fail'
+    mimetype = 'application/json'
+    return HttpResponse(data, mimetype)
+

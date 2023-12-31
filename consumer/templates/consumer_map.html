@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+
+    <!-- <title>AdminX - The last Admin template you'll ever need</title> -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'dist/css/adminx.css'%}" media="screen" />
+
+    <script href='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  
+
+    <div id="googleMap" style="width:100%;height: 600px;"></div>
+
+    <script>
+      
+
+         // Standard google maps function
+    function initialize() {
+        var lat = parseFloat("{{Consumer.Latitude}}");
+        var lon = parseFloat("{{Consumer.Longitude}}");
+        
+        var myLatlng = new google.maps.LatLng(lat, lon);
+        var myOptions = {
+            zoom: 19,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map(document.getElementById("googleMap"), myOptions);
+        TestMarker(lat,lon);
+    }
+
+    // Function for adding a marker to the page.
+    function addMarker(location) {
+        marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
+    }
+
+    // Testing the addMarker function
+    function TestMarker(lat,lon) {
+           CentralPark = new google.maps.LatLng(lat, lon);
+           addMarker(CentralPark);
+    }
+
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMaMAM5qeNzYv_iDpfbyGxOh77bSiGgXU&callback=initialize"></script>
+    
+    
+    <script href="https://code.jquery.com/jquery-3.2.1.min.js'%}"></script>
+    <script href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js'%}"></script>
+    <script href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'dist/js/vendor.js'%}"></script>
+    <script src="{% static 'dist/js/adminx.js'%}"></script>
+
+    <script src="{% static 'plugins/bower_components/jquery/dist/jquery.min.js'%}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'bootstrap/dist/js/bootstrap.min.js'%}"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="{% static 'plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js'%}"></script>
+    <!--slimscroll JavaScript -->
+    <script src="{% static 'js/jquery.slimscroll.js'%}"></script>
+    <!--Wave Effects -->
+    <script src="{% static 'js/waves.js'%}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'js/custom.min.js'%}"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,53 @@
+* {
+  -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+}
+	form .form-group{
+		width: 700px;
+		max-width: 100%;
+		border-radius: 0 !important;
+	}
+
+.ui-autocomplete {
+    max-height: 300px;
+	width:150px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+	
+}
+* html .ui-autocomplete {
+    height: 300px;
+}
+
+.ui-autocomplete .ui-menu-item-wrapper {
+    font-size: 12px;
+    border-radius: 0;
+    border-bottom: solid #eceff1 1px;
+    padding: 10px;
+    color: #000;
+    background: #ffffff;
+}
+.ui-autocomplete .ui-menu-item {
+    color: #000;
+    background: #b3b3b3;
+}
+
+.ui-autocomplete .ui-menu-item:hover, .ui-menu-item-wrapper:hover {
+    color: #fff;
+    background: #b3b3b3;
+}
+
+.ui-menu .ui-state-focus,
+.ui-menu .ui-state-active {
+	color: #fff;
+    background: #b3b3b3;
+    background: #b3b3b3;
+    border: 0;
+}
+
+
+ 
+
+

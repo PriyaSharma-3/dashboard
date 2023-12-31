@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+
+    <title>TPSODL Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'dist/css/adminx.css'%}" media="screen" />
+
+    <script href='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+    <!--
+      # Optional Resources
+      Feel free to delete these if you don't need them in your project
+
+      
+    -->
+
+    <script>
+
+      function show_data(){
+      alert(document.getElementById("show_table").style.display);
+
+      }
+
+    </script>
+
+  </head>
+  <body>
+    <div class="adminx-container">
+      <nav class="navbar navbar-expand justify-content-between fixed-top">
+        <a class="navbar-brand mb-0 h1 d-none d-md-block" href="/consumer">
+          <img src="{% static 'plugins/images/Tpsodl_logo.png'%}"  style="width:150px;height:55px" class="navbar-brand-image d-inline-block align-top mr-2" alt="">
+        
+        </a>
+
+        <form class="form-inline form-quicksearch d-none d-md-block mx-auto">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-icon">
+                <!-- <i data-feather="search"></i> -->
+              </div>
+            </div>
+            <!-- <input type="text" class="form-control" id="search" placeholder="Type to search..."> -->
+          </div>
+        </form>
+
+        <!-- <div class="d-flex flex-1 d-block d-md-none">
+          <a href="#" class="sidebar-toggle ml-3">
+            <i data-feather="menu"></i>
+          </a>
+        </div> -->
+
+        <ul class="navbar-nav d-flex justify-content-end mr-2">
+         
+          <!-- Notifications -->
+
+          <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+       
+            <ul class="navbar-nav navbar-nav-right">
+              <li class="nav-item nav-profile dropdown">
+              
+                <div>
+                      
+                    <a class="btn btn-info" href='/logout'>Logout</a>
+                
+                </div>
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span class="mdi mdi-menu"></span>
+            </button>
+          </div>
+
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link avatar-with-name" id="navbarDropdownMenuLink" data-toggle="dropdown" href="#">
+              <img src="{% static 'demo/img/user.jpg'%}" style="width:70px;height:55px;" class="d-inline-block align-top" alt="">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Account</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item text-danger" href="/logout">Log out</a>
+            </div>
+          </li> -->
+        </ul>
+      </nav>
+
+      <!-- expand-hover push -->
+      <!-- Sidebar -->
+      <div class="adminx-sidebar expand-hover push">
+        <ul class="sidebar-nav">
+          <li class="sidebar-nav-item">
+            <a href="/index" class="sidebar-nav-link active">
+              <span class="sidebar-nav-icon">
+                <i data-feather="home"></i>
+              </span>
+              <span class="sidebar-nav-name">
+                Dashboard
+              </span>
+              <span class="sidebar-nav-end">
+
+              </span>
+            </a>
+          </li>
+
+          <li class="sidebar-nav-item">
+            <a href="/consumer" class="sidebar-nav-link">
+              <span class="sidebar-nav-icon">
+                <i data-feather="layout"></i>
+              </span>
+              <span class="sidebar-nav-name">
+                Consumer
+              </span>
+            </a>
+          </li>
+<!-- 
+          <li class="sidebar-nav-item">
+            <a href="/consumer_map" class="sidebar-nav-link" target="blank">
+              <span class="sidebar-nav-icon">
+                <i data-feather="map-pin"></i>
+              </span>
+              <span class="sidebar-nav-name">
+                Map
+              </span>
+            </a>
+          </li> -->
+
+
+          <li class="sidebar-nav-item">
+            <a href="/consumer_excel" class="sidebar-nav-link">
+              <span class="sidebar-nav-icon">
+                <i data-feather="arrow-right"></i>
+              </span>
+              <span class="sidebar-nav-name">
+                Excel Download
+              </span>
+            </a>
+          </li>
+
+
+          
+          
+            </ul>
+          </li>
+        </ul>
+      </div><!-- Sidebar End -->
+
+      <!-- adminx-content-aside -->
+      <div class="adminx-content">
+        <div class="adminx-main-content">
+          <div class="container-fluid">
+            <!-- BreadCrumb -->
+            <!-- <nav aria-label="breadcrumb" role="navigation">
+              <ol class="breadcrumb adminx-page-breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+              </ol>
+            </nav> -->
+
+            <div class="pb-3">
+              <h2><b>Consumer Download Excel</b></h2>
+            </div>
+
+         
+            <br>
+
+            <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+
+                    <div class="table-responsive">
+                        <table  class="table" style="text-align: center;">
+                            <thead>
+                              <tr>
+                                  <th>S.NO.</th>
+                                  <th>Column Name</th>
+                                  <th>User Id</th>
+                                  <th>DATE</th>
+                                  <th>Download</th>
+                              </tr>
+                            </thead>
+                           
+                            <tbody>
+                                
+                                  <tr>
+                                   
+                                    <td><h5><b>1</b></h5></td>
+                                    <td><h5><b>Consumer</b></h5></td>
+                                <form method="post" action="/excel_download">
+                                  {% csrf_token %} 
+                                  <td>
+                                    <select name="Username_Consumer" id="Username_Consumer" style="width: 120px;">
+                                      
+                                      <option value="">Select</option>
+                                
+                                        <option value="all">All</option>
+                                        <option value="mmc1">MMC1</option>
+                                        <option value="mmc2">MMC2</option>
+                                        <option value="mmc3">MMC3</option>
+                                        <option value="mmc4">MMC4</option>
+                                        <option value="mmc5">MMC5</option>
+                                        <option value="mmc6">MMC6</option>
+                                        <option value="mmc7">MMC7</option>
+                                        <option value="mmc8">MMC8</option>
+                                        <option value="mmc9">MMC9</option>
+                                        <option value="mmc10">MMC10</option>
+                                        <option value="mmc11">MMC11</option>
+                                        <option value="mmc12">MMC12</option>
+                                        <option value="mmc13">MMC13</option>
+                                        <option value="mmc14">MMC14</option>
+                                        <option value="mmc15">MMC15</option>
+                                        <option value="mmc16">MMC16</option>
+                                        <option value="mmc17">MMC17</option>
+                                        <option value="mmc18">MMC18</option>
+                                        <option value="mmc19">MMC19</option>
+                                        <option value="mmc20">MMC20</option>
+                                        <option value="mmc21">MMC21</option>
+                                        <option value="mmc22">MMC22</option>
+                                        <option value="mmc23">MMC23</option>
+                                        <option value="mmc24">MMC24</option>
+                                        <option value="mmc25">MMC25</option>
+                                        <option value="mmc26">MMC26</option>
+                                        <option value="mmc27">MMC27</option>
+                                        <option value="mmc28">MMC28</option>
+                                        <option value="mmc29">MMC29</option>
+                                        <option value="mmc30">MMC30</option>
+                                        <option value="mmc31">MMC31</option>
+                                        <option value="mmc32">MMC32</option>
+                                        <option value="mmc33">MMC33</option>
+                                        <option value="mmc34">MMC34</option>
+                                        <option value="mmc35">MMC35</option>
+                                        <option value="mmc36">MMC36</option>
+                                        <option value="mmc37">MMC37</option>
+                                        <option value="mmc38">MMC38</option>
+                                        <option value="mmc39">MMC39</option>
+                                        <option value="mmc40">MMC40</option>
+                                        <option value="mmc41">MMC41</option>
+                                        <option value="mmc42">MMC42</option>
+                                        <option value="mmc43">MMC43</option>
+                                        <option value="mmc44">MMC44</option>
+                                        <option value="mmc45">MMC45</option>
+                                        <option value="mmc46">MMC46</option>
+                                        <option value="mmc47">MMC47</option>
+                                        <option value="mmc48">MMC48</option>
+                                        <option value="mmc49">MMC49</option>
+                                        <option value="mmc50">MMC50</option>
+            
+                                    </select>
+                                  </td>  
+                                    <td><input type="date" name="Date_Time_Consumer" id="Date_Time_Consumer"></td>
+                                    
+                                    <!-- <td> <a href="/Builtup_excel" class='fa fa-file-excel-o'></a></td> -->
+                                    <td>
+                                      <!-- <a href="" class='fa fa-file-excel-o' id="Excel_"></a> -->
+                                  <input type="submit" value="download Excel" class="btn btn-primary" style="height: 40px;">
+                                  </td>
+                                  </form>
+                                </tr> 
+            
+                            </tbody>
+                          </table>
+                
+                    </div>
+
+                  </div>
+                </div>
+
+      </div>
+    </div>
+
+    <!-- If you prefer jQuery these are the required scripts -->
+    <script href="https://code.jquery.com/jquery-3.2.1.min.js'%}"></script>
+    <script href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js'%}"></script>
+    <script href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'dist/js/vendor.js'%}"></script>
+    <script src="{% static 'dist/js/adminx.js'%}"></script>
+
+    <script src="{% static 'plugins/bower_components/jquery/dist/jquery.min.js'%}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'bootstrap/dist/js/bootstrap.min.js'%}"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="{% static 'plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js'%}"></script>
+    <!--slimscroll JavaScript -->
+    <script src="{% static 'js/jquery.slimscroll.js'%}"></script>
+    <!--Wave Effects -->
+    <script src="{% static 'js/waves.js'%}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'js/custom.min.js'%}"></script>
+
+    <!-- If you prefer vanilla JS these are the only required scripts -->
+    <!-- script src="./dist/js/vendor.js"></script>
+    <script src="./dist/js/adminx.vanilla.js"></script-->
+  </body>
+</html>

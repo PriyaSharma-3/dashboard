@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+
+    <!-- <title>AdminX - The last Admin template you'll ever need</title> -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'dist/css/adminx.css'%}" media="screen" />
+
+    <!--
+      # Optional Resources
+      Feel free to delete these if you don't need them in your project
+    -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'form_css/media/img/favicon.ico'%}">
+    <!-- Google Fonts
+		============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <!-- <link rel="stylesheet" href="{% static 'form_css/css/bootstrap.min.css'%}"> -->
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'form_css/css/font-awesome.min.css'%}">
+    <!-- owl.carousel CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'form_css/css/owl.carousel.css'%}">
+    <link rel="stylesheet" href="{% static 'form_css/css/owl.theme.css'%}">
+    <link rel="stylesheet" href="{% static 'form_css/css/owl.transitions.css'%}">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'form_css/css/animate.css'%}">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'form_css/css/normalize.css'%}">
+    <!-- meanmenu icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'form_css/css/meanmenu.min.css'%}">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'form_css/css/main.css'%}">
+    <!-- educate icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'form_css/css/educate-custon-icon.css'%}">
+    <!-- morrisjs CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'form_css/css/morrisjs/morris.css'%}">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'form_css/css/scrollbar/jquery.mCustomScrollbar.min.css'%}">
+    <!-- metisMenu CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'form_css/css/metisMenu/metisMenu.min.css'%}">
+    <link rel="stylesheet" href="{% static 'form_css/css/metisMenu/metisMenu-vertical.css'%}">
+    <!-- calendar CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'form_css/css/calendar/fullcalendar.min.css'%}">
+    <link rel="stylesheet" href="{% static 'form_css/css/calendar/fullcalendar.print.min.css'%}">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'form_css/style.css'%}">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'form_css/css/responsive.css'%}">
+    <!-- modernizr JS
+		============================================ -->
+    <script src="{% static 'form_css/js/vendor/modernizr-2.8.3.min.js'%}"></script>
+
+
+  </head>
+  <body>
+
+    <script>
+
+
+
+    </script>
+    <div class="adminx-container">
+      <nav class="navbar navbar-expand justify-content-between fixed-top">
+        <a class="navbar-brand mb-0 h1 d-none d-md-block" href="index.html">
+          <img src="{% static 'plugins/images/Tpsodl_logo.png'%}"  style="width:150px;height:55px" class="navbar-brand-image d-inline-block align-top mr-2" alt="">
+        
+        </a>
+
+        <form class="form-inline form-quicksearch d-none d-md-block mx-auto">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-icon">
+                <!-- <i data-feather="search"></i> -->
+              </div>
+            </div>
+            <!-- <input type="text" id="search" placeholder="Type to search..."> -->
+          </div>
+        </form>
+
+        <div class="d-flex flex-1 d-block d-md-none">
+          <a href="#" class="sidebar-toggle ml-3">
+            <i data-feather="menu"></i>
+          </a>
+        </div>
+
+        <ul class="navbar-nav d-flex justify-content-end mr-2">
+         
+          <!-- Notifications -->
+
+          <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+       
+            <ul class="navbar-nav navbar-nav-right">
+              <li class="nav-item nav-profile dropdown">
+              
+                <div>
+                      
+                    <a class="btn btn-info" href='/logout'>Logout</a>
+                
+                </div>
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span class="mdi mdi-menu"></span>
+            </button>
+          </div>
+
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link avatar-with-name" id="navbarDropdownMenuLink" data-toggle="dropdown" href="#">
+              <img src="{% static 'demo/img/user.jpg'%}" style="width:70px;height:55px;" class="d-inline-block align-top" alt="">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Account</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item text-danger" href="/logout">Log out</a>
+            </div>
+          </li> -->
+        </ul>
+      </nav>
+
+      <!-- expand-hover push -->
+      <!-- Sidebar -->
+      <div class="adminx-sidebar expand-hover push">
+        <ul class="sidebar-nav">
+          <li class="sidebar-nav-item">
+            <a href="/index" class="sidebar-nav-link active">
+              <span class="sidebar-nav-icon">
+                <i data-feather="home"></i>
+              </span>
+              <span class="sidebar-nav-name">
+                Dashboard
+              </span>
+              <span class="sidebar-nav-end">
+
+              </span>
+            </a>
+          </li>
+
+          <li class="sidebar-nav-item">
+            <a href="/consumer" class="sidebar-nav-link">
+              <span class="sidebar-nav-icon">
+                <i data-feather="layout"></i>
+              </span>
+              <span class="sidebar-nav-name">
+                Consumer
+              </span>
+            </a>
+          </li>
+
+          <!-- <li class="sidebar-nav-item">
+            <a href="/consumer_map" class="sidebar-nav-link" target="blank">
+              <span class="sidebar-nav-icon">
+                <i data-feather="map-pin"></i>
+              </span>
+              <span class="sidebar-nav-name">
+                Map
+              </span>
+            </a>
+          </li> -->
+
+
+          <li class="sidebar-nav-item">
+            <a href="/consumer_excel" class="sidebar-nav-link">
+              <span class="sidebar-nav-icon">
+                <i data-feather="arrow-right"></i>
+              </span>
+              <span class="sidebar-nav-name">
+                Excel Download
+              </span>
+            </a>
+          </li>
+
+          
+          
+            </ul>
+          </li>
+        </ul>
+      </div><!-- Sidebar End -->
+
+      <!-- adminx-content-aside -->
+      <div class="adminx-content">
+        <div class="adminx-main-content">
+          <div class="container-fluid">
+            <!-- BreadCrumb -->
+            <!-- <nav aria-label="breadcrumb" role="navigation">
+              <ol class="breadcrumb adminx-page-breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+              </ol>
+            </nav> -->
+
+<div class="single-pro-review-area mt-t-30 mg-b-15">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="product-payment-inner-st">
+                  <ul id="myTabedu1" class="tab-review-design">
+                      <li class="active"><a href="/consumer_edit"> Update Consumer Details</a></li>
+                      
+                  </ul>
+      
+                          <div class="row">
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  
+
+
+                                <form method="POST" class="post-form" action="/update/{{Consumer.Id}}">  
+                                                                  {% csrf_token %}  
+                                              <div class="row">
+
+
+                                                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                  <!-- <h4 style="color:#006DF0;">Basic Details</h4>
+                                                  <hr> -->
+
+
+                                                  <div class="form-group">
+                                                    <label>Id :</label>
+                                                          <input type="text" name="Id" id="Id" class="form-control" value="{{ Consumer.Id  }}"/>     
+                                                   </div>
+                                                      
+                                                  <div class="form-group">
+                                                    <label>SurveyId :</label>
+                                                          <input type="text" name="SurveyId" id="SurveyId" class="form-control" value="{{ Consumer.SurveyId  }}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>Latitude  :</label>
+                                                          <input type="text" name="Latitude" id="Latitude" class="form-control" value="{{ Consumer.Latitude  }}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>  Longitude :</label>
+                                                          <input type="text" name="Longitude" id="Longitude"  class="form-control" value="{{ Consumer.Longitude}}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>Username  :</label>
+                                                          <input type="text" name="Username" id="Username" class="form-control"  value="{{ Consumer.Username}}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>Date_Time :</label>
+                                                          <input type='datetime-local'  name="Date_Time" id="Date_Time" class="form-control" value="{{Consumer.Date_Time|date:'Y-m-d'}}T{{Consumer.Date_Time|time:'H:i:s'}}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>SubDivision :</label>
+                                                          <input type="text" name="SubDivision" id="SubDivision" class="form-control" value="{{ Consumer.SubDivision }}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>Section :</label>
+                                                          <input type="text" name="Section" id="Section" class="form-control" value="{{ Consumer.Section}}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>BuildingReferenceNumber:</label>
+                                                          <input type="text" name="BuildingReferenceNumber" class="form-control" id="BuildingReferenceNumber"  value="{{ Consumer.BuildingReferenceNumber}}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label> ConnectedPoleNo :</label>
+                                                          <input type="text" name="ConnectedPoleNo" id="ConnectedPoleNo" class="form-control" value="{{ Consumer.ConnectedPoleNo}}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>PaintedPoleNo:</label>
+                                                          <input type="text" name="PaintedPoleNo" id="PaintedPoleNo" class="form-control" value="{{ Consumer.PaintedPoleNo}}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label> FeederName :</label>
+                                                          <input type="text" name="FeederName" id=" FeederName" class="form-control" value="{{ Consumer.FeederName }}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>DTCode :</label>
+                                                          <input type="text" name="DTCode" id="DTCode" class="form-control" value="{{ Consumer.DTCode }}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>ConsumerName :</label>
+                                                          <input type="text" name="ConsumerName" id="ConsumerName" class="form-control" value="{{ Consumer.ConsumerName }}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>NewAccountNumber :</label>
+                                                          <input type="text" name="NewAccountNumber" id="NewAccountNumber" class="form-control" value="{{ Consumer.NewAccountNumber }}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>OldAccountNumber :</label>
+                                                          <input type="text" name="OldAccountNumber" id="OldAccountNumber" class="form-control" value="{{ Consumer.OldAccountNumber }}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>SCNumber :</label>
+                                                          <input type="text" name="SCNumber" id="SCNumber" class="form-control" value="{{ Consumer.SCNumber }}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>CustomerMobileNumber :</label>
+                                                          <input type="text" name="CustomerMobileNumber" id="CustomerMobileNumber" class="form-control" value="{{ Consumer.CustomerMobileNumber }}"/>     
+                                                  </div>
+                                                                                        
+                                            <div class="form-group">
+                                              <label  >MeterPhoto :</label>
+                                              <input type="text" name="OtherPhoto" id="OtherPhoto" class="form-control" value="{{ Consumer.OtherPhoto}}"/>   
+
+                                              
+                                              <td> <img src="{% static 'media/TPWODL/MeterPhoto/' %}{{Consumer.MeterPhoto}}" alt="image not found"  style="width: 150px;height:150px;"/>  </td>
+                                             <br><br>
+                                            
+                                          
+                                            </div>
+                                                                                          
+
+
+                                                </div><!--###########--><br>
+                                                                                                            
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+
+                                                                                                      
+                                                                                                      
+
+                                                  <div class="form-group">
+                                                    <label>FlatNo :</label>
+                                                          <input type="text" name="FlatNo" id="FlatNo" class="form-control" value="{{ Consumer.FlatNo }}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>Address1 :</label>
+                                                          <input type="text" name="Address1" id="Address1" class="form-control" value="{{ Consumer.Address1 }}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>Address2 :</label>
+                                                          <input type="text" name="Address2" id="SubDivision" class="form-control" value="{{ Consumer.Address2 }}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>Address3 :</label>
+                                                          <input type="text" name="Address3" id="Address3" class="form-control" value="{{ Consumer.Address3 }}"/>     
+                                                  </div>
+
+
+                                                  <div class="form-group">
+                                                    <label>ConsumerDoorLock :</label>
+                                                          <input type="text" name="ConsumerDoorLock" id="ConsumerDoorLock" class="form-control" value="{{ Consumer.ConsumerDoorLock }}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>AMRInstalled :</label>
+                                                          <input type="text" name="AMRInstalled" id="AMRInstalled" class="form-control" value="{{ Consumer.AMRInstalled }}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>CommunicationType :</label>
+                                                          <input type="text" name="CommunicationType" id="CommunicationType" class="form-control" value="{{ Consumer.CommunicationType }}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>CTRatio :</label>
+                                                          <input type="text" name="CTRatio" id="CTRatio" class="form-control" value="{{ Consumer.CTRatio }}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>DisplayCondition :</label>
+                                                          <input type="text" name="DisplayCondition" id="DisplayCondition" class="form-control" value="{{ Consumer.DisplayCondition }}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>MaximumDemand :</label>
+                                                          <input type="text" name="MaximumDemand" id="MaximumDemand" class="form-control" value="{{ Consumer.MaximumDemand}}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>MeterAvailability :</label>
+                                                          <input type="text" name="MeterAvailability" id="MeterAvailability" class="form-control" value="{{ Consumer.MeterAvailability}}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>MeterBox :</label>
+                                                          <input type="text" name="MeterBox" id="MeterBox" class="form-control"  value="{{ Consumer.MeterBox}}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>MeterLocation:</label>
+                                                          <input type="text" name="MeterLocation" id="MeterLocation" class="form-control" value="{{ Consumer.MeterLocation}}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>HeightGT5ft :</label>
+                                                          <input type="text" name="HeightGT5ft" id="HeightGT5ft" class="form-control" value="{{ Consumer.HeightGT5ft}}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>MeterStatus:</label>
+                                                          <input type="text" name="MeterStatus" id="MeterStatus" class="form-control" value="{{ Consumer.MeterStatus}}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>NominalVoltage:</label>
+                                                          <input type="text" name="NominalVoltage" id="NominalVoltage" class="form-control" value="{{ Consumer.NominalVoltage}}"/>     
+                                                  </div>
+
+                                                  <div class="form-group">
+                                                    <label>PhaseConnection:</label>
+                                                          <input type="text" name="PhaseConnection" id="PhaseConnection" class="form-control" value="{{ Consumer.PhaseConnection}}"/>     
+                                                  </div>
+                                                                                  
+                               <div class="form-group">
+                                <label >BillPhoto :</label>
+
+                                <input type="text" name="OtherPhoto" id="OtherPhoto" class="form-control" value="{{ Consumer.OtherPhoto}}"/>   
+
+                                <td> <img src="{% static 'media/TPWODL/BillPhoto/' %}{{Consumer.BillPhoto}}" alt="image not found"  style="width: 150px;height:150px;"/>  </td>
+                                <br><br>
+                              
+                              
+                              </div> 
+
+
+                        
+
+                                                  </div><!--###########-->
+                                                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                               
+                                                   
+
+                                                      
+                                                    <div class="form-group">
+                                                      <label>SealCondition:</label>
+                                                            <input type="text" name="SealCondition" id="SealCondition" class="form-control" value="{{ Consumer.SealCondition}}"/>     
+                                                     </div>
+                                                    
+                                                    <div class="form-group">
+                                                      <label>SealType:</label>
+                                                            <input type="text" name="SealType" id="SealType" class="form-control" value="{{ Consumer.SealType}}"/>     
+                                                     </div>
+                                                    
+                                                    <div class="form-group">
+                                                      <label>TotalMF:</label>
+                                                            <input type="text" name="TotalMF" id="TotalMF" class="form-control" value="{{ Consumer.TotalMF}}"/>     
+                                                     </div>
+                                                    
+                                                    <div class="form-group">
+                                                      <label>kWh :</label>
+                                                            <input type="text" name="kWh" id="kWh" class="form-control" value="{{ Consumer.kWh}}"/>     
+                                                     </div>
+                                                    
+                                                    <div class="form-group">
+                                                      <label>Bypass:</label>
+                                                            <input type="text" name="Bypass" id="Bypass" class="form-control" value="{{ Consumer.Bypass}}"/>     
+                                                     </div>
+                                                    
+                                                    <div class="form-group">
+                                                      <label>Category:</label>
+                                                            <input type="text" name="Category" id="Category" class="form-control" value="{{ Consumer.Category}}"/>     
+                                                     </div>
+                                                    
+                                                    <div class="form-group">
+                                                      <label>Type:</label>
+                                                            <input type="text" name="Type" id="Type" class="form-control" value="{{ Consumer.Type}}"/>     
+                                                     </div>
+                                                    
+                                                    <div class="form-group">
+                                                      <label>SubType:</label>
+                                                            <input type="text" name="SubType" id="SubType" class="form-control" value="{{ Consumer.SubType}}"/>     
+                                                     </div>
+                                                    
+                                                    <div class="form-group">
+                                                      <label>MeterSerialNumber:</label>
+                                                            <input type="text" name="MeterSerialNumber" id="MeterSerialNumber" class="form-control" value="{{ Consumer.MeterSerialNumber}}"/>     
+                                                     </div>
+                                                    
+                                                    <div class="form-group">
+                                                      <label>MeterMake:</label>
+                                                            <input type="text" name="MeterMake" id="MeterMake" class="form-control" value="{{ Consumer.MeterMake}}"/>     
+                                                     </div>
+                                                    
+                                                    <div class="form-group">
+                                                      <label>Theft:</label>
+                                                            <input type="text" name="Theft" id="Theft" class="form-control" value="{{ Consumer.Theft}}"/>     
+                                                     </div>
+                                                    
+                                                    <div class="form-group">
+                                                      <label>BillDelivered:</label>
+                                                            <input type="text" name="BillDelivered" id="BillDelivered" class="form-control" value="{{ Consumer.BillDelivered}}"/>     
+                                                     </div>
+                                                    
+                                                    <div class="form-group">
+                                                      <label>BillShown:</label>
+                                                            <input type="text" name="BillShown" id="BillShown" class="form-control" value="{{ Consumer.BillShown}}"/>     
+                                                     </div>
+                                                    
+                                                    <div class="form-group">
+                                                      <label>SNeighbouringMeterNo:</label>
+                                                            <input type="text" name="NeighbouringMeterNo" id="NeighbouringMeterNo" class="form-control" value="{{ Consumer.NeighbouringMeterNo}}"/>     
+                                                     </div>
+                                                    
+                                                    <div class="form-group">
+                                                      <label>NeighbouringConsumerNo:</label>
+                                                            <input type="text" name="NeighbouringConsumerNo" id="NeighbouringConsumerNo" class="form-control" value="{{ Consumer.NeighbouringConsumerNo}}"/>     
+                                                     </div>
+                                                    
+                                                    <div class="form-group">
+                                                      <label>NoofDigits :</label>
+                                                            <input type="text" name="NoofDigits" id="NoofDigits" class="form-control" value="{{ Consumer.NoofDigits}}"/>     
+                                                     </div>
+                                                    
+                                                    <div class="form-group">
+                                                      <label>SurveyorRemark :</label>
+                                                            <input type="text" name="SurveyorRemark" id="SurveyorRemark" class="form-control" value="{{ Consumer.SurveyorRemark}}"/>     
+                                                     </div>
+
+            <div class="form-group">
+              <label >OtherPhoto :</label>
+              <input type="text" name="OtherPhoto" id="OtherPhoto" class="form-control" value="{{ Consumer.OtherPhoto}}"/>     
+              <td> <img src="{% static 'media/TPWODL/OtherPhoto/' %}{{Consumer.OtherPhoto}}" alt="image not found" style="width: 150px;height:150px;"/>  </td>
+              <br><br>
+          
+            
+            </div>
+            
+
+                
+                
+
+                                                  </div>
+                                              </div><!--###########################-->
+                                            
+
+
+                                                          
+                                                  <div class="row">
+                                                  <div class="col-lg-12">
+                                                      <div class="payment-adress">
+                                                      <hr>
+                                                      <input type="submit" class="btn btn-primary" value="update">
+                                                  </div>
+                                                  </div>
+                                              </div>
+                                            
+                                                          </form>  
+  
+  
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+             
+  
+
+    <!-- If you prefer jQuery these are the  scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js'%}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js'%}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'dist/js/vendor.js'%}"></script>
+    <script src="{% static 'dist/js/adminx.js'%}"></script>
+
+    <script src="{% static 'plugins/bower_components/jquery/dist/jquery.min.js'%}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'bootstrap/dist/js/bootstrap.min.js'%}"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="{% static 'plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js'%}"></script>
+    <!--slimscroll JavaScript -->
+    <script src="{% static 'js/jquery.slimscroll.js'%}"></script>
+    <!--Wave Effects -->
+    <script src="{% static 'js/waves.js'%}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'js/custom.min.js'%}"></script>
+
+    
+
+
+
+      <script src="{% static 'form_css/js/vendor/jquery-1.12.4.min.js' %}"></script>
+      <!-- bootstrap JS
+      ============================================ -->
+      <script src="{% static 'form_css/js/bootstrap.min.js' %}"></script>
+      <!-- wow JS
+      ============================================ -->
+      <script src="{% static 'form_css/js/wow.min.js' %}"></script>
+      <!-- price-slider JS
+      ============================================ -->
+      <script src="{% static 'form_css/js/jquery-price-slider.js' %}"></script>
+      <!-- meanmenu JS
+      ============================================ -->
+      <script src="{% static 'form_css/js/jquery.meanmenu.js' %}"></script>
+      <!-- owl.carousel JS
+      ============================================ -->
+      <script src="{% static 'form_css/js/owl.carousel.min.js' %}"></script>
+      <!-- sticky JS
+      ============================================ -->
+      <script src="{% static 'form_css/js/jquery.sticky.js' %}"></script>
+      <!-- scrollUp JS
+      ============================================ -->
+      <script src="{% static 'form_css/js/jquery.scrollUp.min.js' %}"></script>
+      <!-- counterup JS
+      ============================================ -->
+      <script src="{% static 'form_css/js/counterup/jquery.counterup.min.js' %}"></script>
+      <script src="{% static 'form_css/js/counterup/waypoints.min.js' %}"></script>
+      <script src="{% static 'form_css/js/counterup/counterup-active.js' %}"></script>
+      <!-- mCustomScrollbar JS
+      ============================================ -->
+      <script src="{% static 'form_css/js/scrollbar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+      <script src="{% static 'form_css/js/scrollbar/mCustomScrollbar-active.js' %}"></script>
+      <!-- metisMenu JS
+      ============================================ -->
+      <script src="{% static 'form_css/js/metisMenu/metisMenu.min.js' %}"></script>
+      <script src="{% static 'form_css/js/metisMenu/metisMenu-active.js' %}"></script>
+      <!-- morrisjs JS
+      ============================================ -->
+      <script src="{% static 'form_css/js/morrisjs/raphael-min.js' %}"></script>
+      <script src="{% static 'form_css/js/morrisjs/morris.js' %}"></script>
+      <script src="{% static 'form_css/js/morrisjs/morris-active.js' %}"></script>
+      <!-- morrisjs JS
+      ============================================ -->
+      <script src="{% static 'form_css/js/sparkline/jquery.sparkline.min.js' %}"></script>
+      <script src="{% static 'form_css/js/sparkline/jquery.charts-sparkline.js' %}"></script>
+      <script src="{% static 'form_css/js/sparkline/sparkline-active.js' %}"></script>
+      <!-- calendar JS
+      ============================================ -->
+      <script src="{% static 'form_css/js/calendar/moment.min.js' %}"></script>
+      <script src="{% static 'form_css/js/calendar/fullcalendar.min.js' %}"></script>
+      <script src="{% static 'form_css/js/calendar/fullcalendar-active.js' %}"></script>
+      <!-- plugins JS
+      ============================================ -->
+      <script src="{% static 'form_css/js/plugins.js' %}"></script>
+      <!-- main JS
+      ============================================ -->
+      <script src="{% static 'form_css/js/main.js' %}"></script>
+  </body>
+</html>
